@@ -257,6 +257,8 @@ class FfmpegQualityMetrics:
         # ffmpeg version 7.1.1 Copyright (c) 2000-2025 the FFmpeg developers
         # ...
         version_str = stdout.split("\n")[0].split(" ")[2]
+        # Remove the leading 'n' if present
+        version_str = version_str.lstrip('n')
         # Clean the version string by removing the "-static" suffix if it exists
         version_str = version_str.split("-")[0]
         return parse_version(version_str)
